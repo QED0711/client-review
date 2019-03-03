@@ -9,5 +9,8 @@
 
 test = User.create({first_name: "Quinn", last_name: "Dizon", email: "qdizon@email.com", authorization: "admin", password: "123"})
 
-test.comments.create({text: "This part needs fixing"})
-test.comments.create({text: "I like this part keep it"})
+# test.comments.create({text: "This part needs fixing"})
+# test.comments.create({text: "I like this part keep it"})
+
+test.projects.create({title: "Project No. 1"}).comments.create({text: "This needs a fix"})
+test.projects.first.comments.create({text: "I like this. Keep This"})

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
-    has_many :comments
+    has_many :projects
+    has_many :comments, through: :projects
 
     has_secure_password
 
