@@ -11,9 +11,24 @@ class UsersController < ApplicationController
     redirect_to users_index_url
   end
 
-  def show
+  def sign_in
+    @user = User.new
+  end
+
+  def login
+    @user = User.find_by({email: params[:user][:email]})
+    if @user and @user.authenticate params[:user][:password] 
+      login_user @user
+      redirect_to '/'
+    else
+      redirect_to users_sign_in_path
+    end
     
   end
+
+  # def show
+    
+  # end
 
   private
 

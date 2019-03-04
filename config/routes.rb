@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   
   
-  get 'users/new'
-  get 'users/index'
+  
+  
+  resources :users, only: [:new, :create]
   get 'users/sign_in'
-  # get 'user/new'
-
-  resources :users, only: [:new, :create, :show]
-
+  post 'users/login'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
     
