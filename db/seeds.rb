@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-test = User.create({first_name: "Quinn", last_name: "Dizon", email: "qdizon@email.com", authorization: "admin", password: "123"})
+test = User.create({first_name: "Quinn", last_name: "Dizon", email: "qdizon@gmail.com", authorization: "admin", password: "123"})
 
 test.projects.create({title: "Project No. 1"}).create_comment("This is the first comment")
 test.projects.first.create_comment("second comment")

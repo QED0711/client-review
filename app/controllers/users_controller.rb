@@ -10,25 +10,32 @@ class UsersController < ApplicationController
     end
     redirect_to users_index_url
   end
-
+  
+  
   def sign_in
     @user = User.new
   end
-
+  
   def login
     @user = User.find_by({email: params[:user][:email]})
     if @user and @user.authenticate params[:user][:password] 
       login_user @user
-      redirect_to '/'
+      redirect_to user_path(@user)
     else
       redirect_to users_sign_in_path
     end
     
   end
-
-  # def show
-    
-  # end
+  
+  def logout
+    logout_user
+    redirect_to '/'
+  end
+  
+  def show
+    @user = User.find_by_id(params[:id])
+    @projects = @user.projects
+  end
 
   private
 

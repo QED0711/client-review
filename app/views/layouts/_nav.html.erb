@@ -1,0 +1,21 @@
+
+
+<nav>
+    <% if !logged_in %>
+        <div clas"nav-item">
+        <%= button_to "Sign In", users_sign_in_path, method: "get" %>
+        </div>
+    <% end %>
+    
+
+    <% if logged_in %>
+        <div clas"nav-item">
+            <%= button_to "Logout", users_logout_path, method: 'post' %>
+        </div>
+    <% end %>
+
+    <div clas"nav-item">
+        <%= button_to "New Project", new_project_path, method: 'get' %>
+    </div>
+
+</nav>
