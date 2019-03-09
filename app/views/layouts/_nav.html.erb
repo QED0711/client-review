@@ -13,9 +13,15 @@
             <%= button_to "Logout", users_logout_path, method: 'post' %>
         </div>
     <% end %>
+    
+    <% if logged_in %>
+        <div clas"nav-item">
+            <%= button_to "My Projects", user_projects_path, method: 'get' %>
+        </div>
+    <% end %>
 
     <div clas"nav-item">
-        <%= button_to "New Project", new_project_path, method: 'get' %>
+        <%= button_to "New Project", new_user_project_path, method: 'get' %>
     </div>
 
 </nav>

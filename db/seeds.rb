@@ -11,3 +11,8 @@ test = User.create({first_name: "Quinn", last_name: "Dizon", email: "qdizon@gmai
 
 test.projects.create({title: "Project No. 1"}).create_comment("This is the first comment")
 test.projects.first.create_comment("second comment")
+
+
+test.projects.create({title: "Project No. 2"}).create_comment("A comment on the 2nd project")
+test.projects.second.create_comment("Anotehr comment")
+

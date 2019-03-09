@@ -1,4 +1,10 @@
 class ProjectsController < ApplicationController
+  
+  def index
+    @projects = Project.where({user_id: params[:user_id]})
+    
+  end
+
   def new
   end
 
