@@ -7,8 +7,12 @@ class UsersController < ApplicationController
     @params = params["user"]
     if @params["password"] == @params["confirm_password"]
       @user = User.create(user_params)
+      login_user @user
+      redirect_to user_projects_path(@user)
+    else
+      redirect_to new_user_path
     end
-    redirect_to users_index_url
+    
   end
   
   

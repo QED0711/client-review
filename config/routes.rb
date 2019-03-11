@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   get 'users/sign_in'
   post 'users/login'
+  
   resources :users, only: [:new, :create, :show]
+
   resources :users do
     resources :projects, only: [:index, :show, :new, :create]
   end
