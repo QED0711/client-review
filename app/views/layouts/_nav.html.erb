@@ -2,26 +2,28 @@
 
 <nav>
     <% if !logged_in %>
-        <div clas"nav-item">
+        <div class="nav-item">
         <%= button_to "Sign In", users_sign_in_path, method: "get" %>
         </div>
     <% end %>
     
 
     <% if logged_in %>
-        <div clas"nav-item">
+        <div class="nav-item">
             <%= button_to "Logout", users_logout_path, method: 'post' %>
         </div>
     <% end %>
     
     <% if logged_in %>
-        <div clas"nav-item">
-            <%= button_to "My Projects", user_projects_path, method: 'get' %>
+        <div class="nav-item">
+            <%= button_to "My Projects", "/users/#{current_user["id"]}/projects/", method: 'get' %>
         </div>
     <% end %>
-
-    <div clas"nav-item">
-        <%= button_to "New Project", new_user_project_path, method: 'get' %>
-    </div>
+    
+    <% if logged_in %>
+        <div class="nav-item">
+            <%= button_to "New Project", "/users/#{current_user["id"]}/projects/new", method: 'get' %>
+        </div>
+    <% end %>
 
 </nav>

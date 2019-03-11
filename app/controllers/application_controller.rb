@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :logged_in
+    helper_method :logged_in, :current_user
 
     private
 
@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
 
     def logged_in
         session[:current_user]
+    end
+
+    def current_user
+        session[:current_user] || nil
     end
 
 end
